@@ -7,7 +7,8 @@ class QLearningAgent:
     def __init__(self, actions):
         # 행동 = [0, 1, 2, 3] 순서대로 상, 하, 좌, 우
         self.actions = actions
-        self.learning_rate = 0.01
+        #self.learning_rate = 0.01
+        self.learning_rate = 0.02
         self.discount_factor = 0.9
         self.epsilon = 0.9
         self.q_table = defaultdict(lambda: [0.0, 0.0, 0.0, 0.0])
@@ -22,13 +23,14 @@ class QLearningAgent:
     # 큐함수에 의거하여 입실론 탐욕 정책에 따라서 행동을 반환
     def get_action(self, state):
         if np.random.rand() > self.epsilon:
-            # 무작위 행동 반환
+            # 무작위 행동 반환0
             action = np.random.choice(self.actions)
         else:
             # 큐함수에 따른 행동 반환
             state_action = self.q_table[state]
             action = self.arg_max(state_action)
         return action
+
 
     @staticmethod
     def arg_max(state_action):

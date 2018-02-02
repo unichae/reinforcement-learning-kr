@@ -7,8 +7,8 @@ class QLearningAgent:
     def __init__(self, actions):
         # 행동 = [0, 1, 2, 3] 순서대로 상, 하, 좌, 우
         self.actions = actions
-        #self.learning_rate = 0.01
-        self.learning_rate = 0.02
+        self.learning_rate = 0.01
+        #self.learning_rate = 0.02
         self.discount_factor = 0.9
         self.epsilon = 0.9
         self.q_table = defaultdict(lambda: [0.0, 0.0, 0.0, 0.0])
